@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nate The Explorer</title>
+
+<style>
+:root{
+    --green:#4CAF50;
+    --dark:#1f2937;
+    --gold:#FFC107;
+    --light:#f4f7f9;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Trebuchet MS", sans-serif;
+    background: var(--light);
+    color:#333;
+}
+
+header{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1800&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.3rem;
+    margin-bottom:25px;
+}
+
+.button{
+    display:inline-block;
+    background:var(--gold);
+    color:black;
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2rem;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.stat{
+    background:white;
+    text-align:center;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.quest-box{
+    background:var(--dark);
+    color:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.quest{
+    font-size:1.4rem;
+    margin:20px 0;
+    color:var(--gold);
+}
+
+.quest-btn{
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    background:var(--gold);
+    font-weight:bold;
+}
+
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.badge{
+    background:white;
+    padding:15px 20px;
+    border-radius:30px;
+    box-shadow:0 3px 8px rgba(0,0,0,.1);
+}
+
+footer{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.small{
+    opacity:.7;
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:2.6rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="hero">
+        <div>
+            <h1>🧭 Nate The Explorer</h1>
+            <p>
+                Exploring forests, building worlds,
+                reading comics and going on adventures!
+            </p>
+
+            <a href="#adventures" class="button">
+                Start Adventure
+            </a>
+        </div>
+    </div>
+</header>
+
+<section>
+    <h2 class="section-title">Explorer Stats</h2>
+
+    <div class="stats">
+
+        <div class="stat">
+            <h3>🎂 Age</h3>
+            <p>10</p>
+        </div>
+
+        <div class="stat">
+            <h3>⛺ Explorer Rank</h3>
+            <p>Junior Adventurer</p>
+        </div>
+
+        <div class="stat">
+            <h3>⛏ Favourite Game</h3>
+            <p>Minecraft</p>
+        </div>
+
+        <div class="stat">
+            <h3>📚 Favourite Hobby</h3>
+            <p>Reading Comics</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="adventures">
+
+    <h2 class="section-title">Choose Your Adventure</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>⛺ Camping Missions</h3>
+            <p>
+                Camping trips, campfire stories,
+                hiking adventures and nature discoveries.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>⛏ Minecraft World</h3>
+            <p>
+                Awesome builds, survival bases,
+                villages and creative projects.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎮 Gaming Zone</h3>
+            <p>
+                Roblox adventures,
+                favourite games and achievements.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📚 Comic Vault</h3>
+            <p>
+                Favourite comics,
+                superheroes and book reviews.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2 class="section-title">Today's Quest</h2>
+
+    <div class="quest-box">
+
+        <p>Your adventure challenge:</p>
+
+        <div id="quest" class="quest">
+            Find 3 different leaves outside.
+        </div>
+
+        <button class="quest-btn" onclick="newQuest()">
+            New Quest
+        </button>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2 class="section-title">Explorer Badges</h2>
+
+    <div class="badges">
+
+        <div class="badge">🏕 Camping Expert</div>
+        <div class="badge">📚 Comic Collector</div>
+        <div class="badge">⛏ Master Builder</div>
+        <div class="badge">🎮 Gaming Champion</div>
+        <div class="badge">🧭 Trail Explorer</div>
+        <div class="badge">⭐ Adventure Hero</div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2 class="section-title">Explorer's Motto</h2>
+
+    <div class="card" style="text-align:center;max-width:700px;margin:auto;">
+        <h3>
+            "Adventure is everywhere if you know where to look."
+        </h3>
+        <br>
+        <p>
+            Every day is a new quest.
+            Build something amazing.
+            Learn something new.
+            Explore somewhere exciting.
+        </p>
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>🧭 Nate The Explorer</h2>
+
+    <p class="small">
+        Adventures • Games • Comics • Discoveries
+    </p>
+
+    <br>
+
+    <p class="small">
+        © 2026 Nate's Adventure Headquarters
+    </p>
+
+</footer>
+
+<script>
+
+const quests = [
+
+"Find 3 different leaves outside 🍃",
+"Build a secret base in Minecraft ⛏",
+"Read a comic for 20 minutes 📚",
+"Draw your dream campsite 🏕",
+"Find something interesting in nature 🔍",
+"Create a new Roblox character 🎮",
+"Learn one new animal fact 🦊",
+"Take a photo of something cool 📸",
+"Build a treehouse in Minecraft 🌳",
+"Tell a campfire story 🔥"
+
+];
+
+function newQuest(){
+
+const random =
+Math.floor(Math.random()*quests.length);
+
+document.getElementById("quest").innerHTML =
+quests[random];
+
+}
+
+</script>
+
+</body>
+</html>
